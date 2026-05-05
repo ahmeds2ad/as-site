@@ -7,80 +7,57 @@
 <style>
 body {
   margin:0;
-  font-family:'Segoe UI';
+  font-family: Arial;
   background:#f5f7fa;
 }
 
-/* NAVBAR */
+/* شريط علوي */
 nav {
-  background:#0a3d91;
+  background:#0b3d91;
   padding:15px;
-  display:flex;
-  justify-content:center;
-  gap:30px;
+  text-align:center;
 }
 
 nav a {
   color:white;
+  margin:0 15px;
   text-decoration:none;
   font-size:18px;
 }
 
-/* HERO */
-.hero {
-  background:linear-gradient(135deg,#0a3d91,#1f6bdc);
+/* العنوان */
+header {
+  background:#1f5edc;
   color:white;
   text-align:center;
-  padding:60px 20px;
+  padding:40px 20px;
 }
 
-.hero h1 {
-  margin:0;
-  font-size:40px;
-}
-
-/* SECTION */
-.section {
+/* الأقسام */
+section {
   padding:40px;
   text-align:center;
 }
 
-/* CARDS */
-.container {
-  display:flex;
-  justify-content:center;
-  gap:20px;
-  flex-wrap:wrap;
-}
-
+/* كروت */
 .card {
   background:white;
-  width:260px;
+  display:inline-block;
+  width:250px;
+  margin:10px;
   padding:20px;
-  border-radius:12px;
-  box-shadow:0 4px 15px rgba(0,0,0,0.1);
-  transition:0.3s;
+  border-radius:10px;
+  box-shadow:0 3px 10px rgba(0,0,0,0.1);
 }
 
-.card:hover {
-  transform:translateY(-10px);
-}
-
+/* زر */
 button {
-  background:#0a3d91;
+  background:#0b3d91;
   color:white;
   border:none;
   padding:10px 20px;
-  border-radius:8px;
+  border-radius:6px;
   cursor:pointer;
-}
-
-/* FOOTER */
-footer {
-  background:#0a3d91;
-  color:white;
-  text-align:center;
-  padding:20px;
 }
 </style>
 
@@ -94,43 +71,33 @@ footer {
   <a href="#contact">تواصل</a>
 </nav>
 
-<div class="hero">
+<header>
   <h1>AS Site</h1>
   <p>تطوير: احمد سعد كشيش</p>
-</div>
+</header>
 
-<!-- البرامج -->
-<div id="apps" class="section">
+<section id="apps">
   <h2>البرامج</h2>
 
-  <div class="container">
-
-    <div class="card">
-      <h3>TMS</h3>
-      <p>نظام ادارة الافراد</p>
-      <a href="PUT_LINK_HERE">
-        <button>تحميل</button>
-      </a>
-    </div>
-
+  <div class="card">
+    <h3>TMS</h3>
+    <p>نظام ادارة الافراد</p>
+    <a href="#">
+      <button>تحميل</button>
+    </a>
   </div>
-</div>
 
-<!-- من نحن -->
-<div id="about" class="section">
+</section>
+
+<section id="about">
   <h2>من نحن</h2>
-  <p>مطور برامج سطح مكتب ومواقع بسيطة</p>
-</div>
+  <p>موقع لعرض البرامج الخاصة بي بشكل بسيط</p>
+</section>
 
-<!-- تواصل -->
-<div id="contact" class="section">
+<section id="contact">
   <h2>تواصل</h2>
   <p>ahmedalmutadareb0@gmail.com</p>
-</div>
-
-<footer>
-© 2026 جميع الحقوق محفوظة
-</footer>
+</section>
 
 </body>
 </html>
