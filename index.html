@@ -3,58 +3,92 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AS Site</title>
+<title>AS SITE</title>
 
 <style>
 body {
     margin:0;
-    font-family: 'Segoe UI', Tahoma;
+    font-family:'Segoe UI', Tahoma;
     background:#f4f6f9;
 }
 
-/* الشريط العلوي */
+/* النافبار */
 nav {
     background:#0b3d91;
-    padding:15px;
+    padding:15px 30px;
     display:flex;
     justify-content:space-between;
     align-items:center;
 }
 
-nav .logo {
+/* اللوغو */
+.logo {
+    display:flex;
+    align-items:center;
+    gap:10px;
     color:white;
-    font-size:20px;
+    font-size:18px;
     font-weight:bold;
 }
 
+.logo img {
+    width:40px;
+    height:40px;
+    object-fit:contain;
+    filter: brightness(0) invert(1);
+}
+
+/* القائمة */
 nav ul {
     list-style:none;
     display:flex;
-    gap:20px;
+    gap:25px;
 }
 
 nav ul li a {
     color:white;
     text-decoration:none;
     font-size:16px;
+    position:relative;
+    padding-bottom:5px;
 }
 
-/* القسم الرئيسي */
+/* الخط الأبيض */
+nav ul li a::after {
+    content:"";
+    position:absolute;
+    right:0;
+    bottom:0;
+    width:0;
+    height:2px;
+    background:white;
+    transition:0.3s;
+}
+
+nav ul li a:hover::after {
+    width:100%;
+}
+
+/* الواجهة */
 .hero {
     background:#0b3d91;
     color:white;
     text-align:center;
-    padding:60px 20px;
+    padding:70px 20px;
 }
 
 .hero h1 {
     margin:0;
-    font-size:32px;
+    font-size:34px;
 }
 
-/* البرامج */
+.hero p {
+    margin-top:10px;
+}
+
+/* الأقسام */
 .section {
-    padding:40px 20px;
+    padding:50px 20px;
     max-width:1000px;
     margin:auto;
 }
@@ -64,25 +98,22 @@ nav ul li a {
     margin-bottom:30px;
 }
 
+/* كرت البرنامج */
 .program-card {
     background:white;
-    padding:20px;
-    border-radius:10px;
+    padding:25px;
+    border-radius:12px;
     margin-bottom:20px;
     box-shadow:0 5px 15px rgba(0,0,0,0.1);
 }
 
-.program-card h3 {
-    margin:0 0 10px;
-}
-
 .download-btn {
     display:inline-block;
-    margin-top:10px;
+    margin-top:15px;
     background:#0b3d91;
     color:white;
     padding:10px 20px;
-    border-radius:5px;
+    border-radius:6px;
     text-decoration:none;
 }
 
@@ -99,9 +130,13 @@ footer {
 </head>
 <body>
 
-<!-- Navbar -->
+<!-- النافبار -->
 <nav>
-    <div class="logo">AS Site</div>
+    <div class="logo">
+        <img src="logo.png" alt="logo">
+        <span>AS SITE</span>
+    </div>
+
     <ul>
         <li><a href="#programs">البرامج</a></li>
         <li><a href="#about">من نحن</a></li>
@@ -109,10 +144,10 @@ footer {
     </ul>
 </nav>
 
-<!-- واجهة -->
+<!-- الواجهة -->
 <div class="hero">
-    <h1>مرحبا بك في AS Site</h1>
-    <p>تحميل برامج بسيطة ومفيدة</p>
+    <h1>مرحبا بك في AS SITE</h1>
+    <p>حيث الإبداع في مكان واحد</p>
 </div>
 
 <!-- البرامج -->
@@ -121,7 +156,7 @@ footer {
 
     <div class="program-card">
         <h3>TMS - برنامج ادارة الافراد</h3>
-        <p>برنامج لتنظيم بيانات الموظفين وإدارة شؤونهم بسهولة.</p>
+        <p>برنامج لإدارة وتثبيت حركة الأفراد تقنياً وبذكاء.</p>
         <a href="#" class="download-btn">تحميل البرنامج</a>
     </div>
 
@@ -131,7 +166,7 @@ footer {
 <div class="section" id="about">
     <h2>من نحن</h2>
     <p style="text-align:center;">
-        موقع AS Site مخصص لنشر البرامج والتطبيقات بشكل بسيط واحترافي.
+        موقع AS SITE مخصص لنشر البرامج والتطبيقات بشكل بسيط واحترافي.
     </p>
 </div>
 
@@ -139,16 +174,16 @@ footer {
 <div class="section" id="contact">
     <h2>تواصل</h2>
     <p style="text-align:center;">
-        📧
+        📧 
         <a href="mailto:ahmedalmutadareb0@gmail.com">
             ahmedalmutadareb0@gmail.com
         </a>
     </p>
 </div>
 
-<!-- Footer -->
+<!-- الفوتر -->
 <footer>
-    AS Site - تطوير: احمد سعد كشيش
+    AS SITE - تطوير: احمد سعد كشيش
 </footer>
 
 </body>
