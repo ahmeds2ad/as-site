@@ -6,94 +6,81 @@
 
 <style>
 body {
-    margin:0;
-    font-family:'Segoe UI', Tahoma;
-    background:#f4f6f9;
+  margin:0;
+  font-family:'Segoe UI';
+  background:#f5f7fa;
 }
 
-/* الشريط العلوي */
+/* NAVBAR */
 nav {
-    background:#0b3d91;
-    color:white;
-    display:flex;
-    justify-content:center;
-    gap:40px;
-    padding:15px;
-    font-size:18px;
+  background:#0a3d91;
+  padding:15px;
+  display:flex;
+  justify-content:center;
+  gap:30px;
 }
 
 nav a {
-    color:white;
-    text-decoration:none;
-    font-weight:bold;
+  color:white;
+  text-decoration:none;
+  font-size:18px;
 }
 
-nav a:hover {
-    color:#ffd700;
-}
-
-/* واجهة البداية */
+/* HERO */
 .hero {
-    text-align:center;
-    padding:60px 20px;
-    background:linear-gradient(to left,#0b3d91,#1e5bb8);
-    color:white;
+  background:linear-gradient(135deg,#0a3d91,#1f6bdc);
+  color:white;
+  text-align:center;
+  padding:60px 20px;
 }
 
 .hero h1 {
-    font-size:40px;
+  margin:0;
+  font-size:40px;
 }
 
-.hero p {
-    font-size:18px;
-}
-
-/* قسم البرامج */
+/* SECTION */
 .section {
-    padding:40px 20px;
-    text-align:center;
+  padding:40px;
+  text-align:center;
 }
 
-.cards {
-    display:flex;
-    justify-content:center;
-    gap:20px;
-    flex-wrap:wrap;
+/* CARDS */
+.container {
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  flex-wrap:wrap;
 }
 
 .card {
-    background:white;
-    width:250px;
-    padding:20px;
-    border-radius:15px;
-    box-shadow:0 4px 10px rgba(0,0,0,0.1);
+  background:white;
+  width:260px;
+  padding:20px;
+  border-radius:12px;
+  box-shadow:0 4px 15px rgba(0,0,0,0.1);
+  transition:0.3s;
 }
 
-.card h3 {
-    margin-bottom:10px;
+.card:hover {
+  transform:translateY(-10px);
 }
 
-.btn {
-    display:inline-block;
-    margin-top:10px;
-    padding:10px 15px;
-    background:#0b3d91;
-    color:white;
-    text-decoration:none;
-    border-radius:8px;
+button {
+  background:#0a3d91;
+  color:white;
+  border:none;
+  padding:10px 20px;
+  border-radius:8px;
+  cursor:pointer;
 }
 
-.btn:hover {
-    background:#062a66;
-}
-
-/* الفوتر */
+/* FOOTER */
 footer {
-    background:#0b3d91;
-    color:white;
-    text-align:center;
-    padding:20px;
-    margin-top:40px;
+  background:#0a3d91;
+  color:white;
+  text-align:center;
+  padding:20px;
 }
 </style>
 
@@ -101,57 +88,48 @@ footer {
 
 <body>
 
-<!-- القائمة -->
 <nav>
-    <a href="#home">الرئيسية</a>
-    <a href="#apps">البرامج</a>
-    <a href="#about">من نحن</a>
-    <a href="#contact">تواصل</a>
+  <a href="#apps">البرامج</a>
+  <a href="#about">من نحن</a>
+  <a href="#contact">تواصل</a>
 </nav>
 
-<!-- الرئيسية -->
-<section class="hero" id="home">
-    <h1>AS Site</h1>
-    <p>موقع تحميل البرامج الخاصة بي</p>
-</section>
+<div class="hero">
+  <h1>AS Site</h1>
+  <p>تطوير: احمد سعد كشيش</p>
+</div>
 
 <!-- البرامج -->
-<section class="section" id="apps">
-    <h2>البرامج</h2>
+<div id="apps" class="section">
+  <h2>البرامج</h2>
 
-    <div class="cards">
+  <div class="container">
 
-        <div class="card">
-            <h3>برنامج إدارة الأفراد</h3>
-            <p>نظام متكامل لإدارة الموظفين</p>
-            <a href="#" class="btn">تحميل</a>
-        </div>
-
-        <div class="card">
-            <h3>برنامج ثاني</h3>
-            <p>وصف بسيط للبرنامج</p>
-            <a href="#" class="btn">تحميل</a>
-        </div>
-
+    <div class="card">
+      <h3>TMS</h3>
+      <p>نظام ادارة الافراد</p>
+      <a href="PUT_LINK_HERE">
+        <button>تحميل</button>
+      </a>
     </div>
-</section>
+
+  </div>
+</div>
 
 <!-- من نحن -->
-<section class="section" id="about">
-    <h2>من نحن</h2>
-    <p>مطور برامج سطح مكتب ومواقع بسيطة</p>
-    <p>تطوير: احمد سعد كشيش</p>
-</section>
+<div id="about" class="section">
+  <h2>من نحن</h2>
+  <p>مطور برامج سطح مكتب ومواقع بسيطة</p>
+</div>
 
 <!-- تواصل -->
-<section class="section" id="contact">
-    <h2>تواصل معي</h2>
-    <p>📧 ahmedalmutadareb0@gmail.com</p>
-</section>
+<div id="contact" class="section">
+  <h2>تواصل</h2>
+  <p>ahmedalmutadareb0@gmail.com</p>
+</div>
 
-<!-- الفوتر -->
 <footer>
-    جميع الحقوق محفوظة © 2026
+© 2026 جميع الحقوق محفوظة
 </footer>
 
 </body>
