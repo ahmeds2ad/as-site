@@ -10,36 +10,51 @@ body {
     font-family:'Segoe UI';
     margin:0;
     background:#f4f6f9;
-    text-align:center;
 }
 
+/* الهيدر */
 header {
     background:#0b3d91;
     color:white;
     padding:30px;
+    text-align:center;
 }
 
+/* الكونتينر */
 .container {
-    margin-top:40px;
+    max-width:800px;
+    margin:50px auto;
+    text-align:center;
 }
 
 /* صورة البرنامج */
 .app-image {
     width:300px;
     border-radius:12px;
-    margin-top:20px;
+    margin:20px auto;
+    display:block;
 }
 
 /* الأزرار */
+.buttons {
+    margin-top:20px;
+}
+
 .btn {
-    display:inline-block;
-    margin:15px;
-    padding:15px 25px;
+    display:block;
+    width:250px;
+    margin:10px auto;
+    padding:12px;
     background:#0b3d91;
     color:white;
     text-decoration:none;
     border-radius:8px;
-    font-size:18px;
+    font-size:16px;
+    transition:0.3s;
+}
+
+.btn:hover {
+    background:#092f6b;
 }
 </style>
 
@@ -57,20 +72,22 @@ header {
     <!-- صورة البرنامج -->
     <img src="tms.png" alt="TMS" class="app-image">
 
-    <!-- زر تحميل البرنامج -->
-    <a href="https://github.com/ahmeds2ad/as-site/releases/download/v1.0/TMS-Setup-1.0.0.exe" class="btn">
-        تحميل البرنامج
-    </a>
+    <!-- الأزرار -->
+    <div class="buttons">
 
-    <!-- عرض PDF -->
-    <a href="https://github.com/ahmeds2ad/as-site/releases/download/v1.0/TMS-info.pdf" target="_blank" class="btn">
-        تفاصيل و مقترح اعتماد البرنامج
-    </a>
+        <a href="https://github.com/ahmeds2ad/as-site/releases/download/v1.0/TMS-Setup-1.0.0.exe" class="btn">
+            تحميل البرنامج
+        </a>
 
-    <!-- تحميل PDF -->
-    <a href="https://github.com/ahmeds2ad/as-site/releases/download/v1.0/TMS-info.pdf" download class="btn">
-       تحميل ملف تفاصيل و مقترح الاعتماد (PDF)
-    </a>
+        <a href="https://github.com/ahmeds2ad/as-site/releases/download/v1.0/TMS-info.pdf" target="_blank" class="btn">
+            تفاصيل و مقترح اعتماد البرنامج
+        </a>
+
+        <a href="https://github.com/ahmeds2ad/as-site/releases/download/v1.0/TMS-info.pdf" download class="btn">
+            تحميل التفاصيل و مقترح الاعتماد (PDF)
+        </a>
+
+    </div>
 
 </div>
 
