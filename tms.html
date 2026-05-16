@@ -3,94 +3,178 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>TMS - AS SITE</title>
 
 <style>
-body {
-    font-family:'Segoe UI';
+
+body{
+    font-family:'Segoe UI',Tahoma;
     margin:0;
     background:#f4f6f9;
+    color:#222;
 }
 
 /* الهيدر */
-header {
+
+header{
     background:#0b3d91;
     color:white;
-    padding:30px;
     text-align:center;
+    padding:40px 20px;
 }
 
-/* الكونتينر */
-.container {
-    max-width:800px;
-    margin:50px auto;
+header h1{
+    margin:0;
+    font-size:38px;
+}
+
+header p{
+    margin-top:10px;
+    font-size:18px;
+}
+
+/* المحتوى */
+
+.container{
+    max-width:900px;
+    margin:60px auto;
+    background:white;
+    padding:40px;
+    border-radius:18px;
+    box-shadow:0 4px 20px rgba(0,0,0,0.08);
     text-align:center;
 }
 
 /* صورة البرنامج */
-.app-image {
-    width:300px;
-    border-radius:12px;
-    margin:20px auto;
+
+.app-image{
+    width:320px;
+    max-width:100%;
+    border-radius:16px;
+    margin:30px auto;
     display:block;
+    transition:0.3s;
+}
+
+.app-image:hover{
+    transform:scale(1.02);
+}
+
+/* الوصف */
+
+.description{
+    font-size:20px;
+    line-height:1.9;
+    margin-bottom:35px;
 }
 
 /* الأزرار */
-.buttons {
-    margin-top:20px;
+
+.buttons{
     display:flex;
     justify-content:center;
     gap:15px;
     flex-wrap:wrap;
 }
 
-.btn {
-    padding:12px 20px;
+.btn{
     background:#0b3d91;
     color:white;
     text-decoration:none;
-    border-radius:8px;
+    padding:14px 24px;
+    border-radius:10px;
     font-size:16px;
     transition:0.3s;
 }
 
-.btn:hover {
-    background:#092f6b;
+.btn:hover{
+    background:#082c69;
+    transform:translateY(-2px);
 }
-</style>
 
+/* الفوتر */
+
+footer{
+    text-align:center;
+    padding:25px;
+    color:#666;
+    font-size:14px;
+}
+
+</style>
 </head>
+
 <body>
 
 <header>
-    <h1>TMS - نظام ادارة الافراد</h1>
+
+    <h1>TMS - نظام إدارة الأفراد</h1>
+
+    <p>
+        برنامج لإدارة وتثبيت حركة الأفراد تقنياً وبذكاء
+    </p>
+
 </header>
 
 <div class="container">
 
-    <p>برنامج لإدارة وتثبيت حركة الأفراد تقنياً وبذكاء.</p>
-
     <!-- صورة البرنامج -->
+
     <img src="tms.png" alt="TMS" class="app-image">
 
+    <!-- وصف -->
+
+    <div class="description">
+
+        يوفر برنامج TMS واجهة بسيطة وعملية لإدارة حركة الأفراد
+        وتنظيم البيانات وإعداد التقارير بسهولة وكفاءة.
+
+    </div>
+
     <!-- الأزرار -->
+
     <div class="buttons">
 
-        <a href="https://github.com/ahmeds2ad/as-site/releases/download/v1.0/TMS-Setup-1.0.0.exe" class="btn">
-            تحميل البرنامج
+        <!-- تحميل البرنامج -->
+
+        <a href="https://github.com/ahmeds2ad/as-site/releases/download/v1.0/TMS.zip"
+           target="_blank"
+           class="btn">
+
+           تحميل البرنامج
+
         </a>
 
-        <a href="https://github.com/ahmeds2ad/as-site/releases/download/v1.0/TMS-info.pdf" target="_blank" class="btn">
-            عرض تفاصيل ومقترح اعتماد البرنامج
+        <!-- عرض PDF -->
+
+        <a href="https://github.com/ahmeds2ad/as-site/releases/download/v1.0/TMS-info.pdf"
+           target="_blank"
+           class="btn">
+
+           عرض تفاصيل ومقترح اعتماد البرنامج
+
         </a>
 
-        <a href="https://github.com/ahmeds2ad/as-site/releases/download/v1.0/TMS-info.pdf" download class="btn">
-            تحميل التفاصيل ومقترح الاعتماد PDF
+        <!-- تحميل PDF -->
+
+        <a href="https://github.com/ahmeds2ad/as-site/releases/download/v1.0/TMS-info.pdf"
+           download
+           class="btn">
+
+           تحميل التفاصيل PDF
+
         </a>
 
     </div>
 
 </div>
+
+<footer>
+
+    AS Site © 2026
+
+</footer>
 
 </body>
 </html>
