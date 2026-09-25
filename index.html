@@ -1,180 +1,184 @@
 <!DOCTYPE html>
-
 <html lang="ar" dir="rtl">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>AS SITE | أحمد سعد كشيش | برامج TMS</title>
-
-<meta name="description" content="AS SITE منصة لنشر البرامج والتطبيقات والحلول الرقمية من تطوير أحمد سعد كشيش. تتضمن برنامج TMS لإدارة الأفراد وبرامج مطورة باستخدام تقنيات الذكاء الاصطناعي.">
-
-<meta name="keywords" content="AS SITE, أحمد سعد كشيش, Ahmed Saad Ksheesh, TMS, برنامج إدارة الأفراد, برامج إدارية, تطبيقات, ذكاء اصطناعي, العراق, واسط">
-
-<meta name="author" content="أحمد سعد كشيش">
-
-<meta property="og:title" content="AS SITE">
-<meta property="og:description" content="منصة لنشر البرامج والتطبيقات من تطوير أحمد سعد كشيش">
-<meta property="og:type" content="website">
-
-<style>
-body {
-    margin:0;
-    font-family:'Segoe UI', Tahoma, sans-serif;
-    background:#f4f6f9;
-}
-
-nav {
-    background:#0b3d91;
-    padding:15px 30px;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
-
-.logo {
-    color:white;
-    font-size:18px;
-    font-weight:bold;
-}
-
-nav ul {
-    list-style:none;
-    display:flex;
-    gap:25px;
-    margin:0;
-    padding:0;
-}
-
-nav ul li a {
-    color:white;
-    text-decoration:none;
-    font-size:16px;
-    position:relative;
-    padding-bottom:5px;
-}
-
-nav ul li a::after {
-    content:"";
-    position:absolute;
-    right:0;
-    bottom:0;
-    width:0;
-    height:2px;
-    background:white;
-    transition:0.3s;
-}
-
-nav ul li a:hover::after {
-    width:100%;
-}
-
-.hero {
-    background:#0b3d91;
-    color:white;
-    text-align:center;
-    padding:70px 20px;
-}
-
-.hero h1 {
-    margin:0;
-    font-size:34px;
-}
-
-.hero p {
-    margin-top:10px;
-    font-size:18px;
-}
-
-.section {
-    padding:50px 20px;
-    max-width:1000px;
-    margin:auto;
-}
-
-.section h2 {
-    text-align:center;
-    margin-bottom:30px;
-}
-
-.program-card {
-    background:white;
-    padding:25px;
-    border-radius:12px;
-    margin-bottom:20px;
-    box-shadow:0 5px 15px rgba(0,0,0,0.1);
-}
-
-.program-card a {
-    text-decoration:none;
-    color:#0b3d91;
-    font-weight:bold;
-    font-size:20px;
-}
-
-.program-card p {
-    margin-top:10px;
-}
-
-footer {
-    text-align:center;
-    padding:20px;
-    background:#222;
-    color:white;
-    margin-top:40px;
-}
-</style>
-
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="description" content="AS SITE — منصة نشر البرامج والتطبيقات الذكية من تطوير أحمد سعد كشيش" />
+<title>AS SITE — برامج وحلول ذكية</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css" />
 </head>
-
 <body>
 
-<nav>
-    <div class="logo">AS SITE</div>
-    <ul>
-        <li><a href="#programs">البرامج</a></li>
-        <li><a href="#about">من نحن</a></li>
-        <li><a href="#contact">تواصل</a></li>
-    </ul>
-</nav>
+<header class="nav" id="nav">
+  <div class="nav-inner">
+    <a href="#" class="logo">
+      <span class="logo-mark">AS</span>
+      <span class="logo-text">SITE</span>
+    </a>
+    <nav class="nav-links">
+      <a href="#apps">البرامج</a>
+      <a href="#about">من نحن</a>
+      <a href="#contact">تواصل</a>
+    </nav>
+    <button class="menu-btn" id="menuBtn" aria-label="القائمة">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
 
-<div class="hero">
-    <h1>مرحبا بك في AS SITE</h1>
-    <p>برامج عملية وفعالة</p>
-</div>
-
-<div class="section" id="programs">
-    <h2>البرامج</h2>
-
-```
-<div class="program-card">
-    <a href="tms.html">TMS - برنامج ادارة الافراد</a>
-    <p>برنامج لإدارة وتثبيت حركة الأفراد تقنياً وبذكاء.</p>
-</div>
-```
-
-</div>
-
-<div class="section" id="about">
-    <h2>من نحن</h2>
-    <p style="text-align:center; line-height:1.9;">
-        موقع AS SITE منصة متخصصة في نشر البرامج والتطبيقات والحلول الرقمية بشكل بسيط واحترافي، تم تطويرها وإدارتها من قبل أحمد سعد كشيش، معاون طبي وحاصل على درجة البكالوريوس في إدارة الأعمال. يهدف الموقع إلى نشر البرامج والتطبيقات التي يتم تطويرها وتحسينها بالاعتماد على الخبرة الشخصية والاستفادة من أدوات وتقنيات الذكاء الاصطناعي الحديثة، لتقديم حلول عملية ومبتكرة تسهم في تبسيط العمل ورفع الكفاءة وتلبية احتياجات المستخدمين.
+<section class="hero">
+  <div class="hero-bg">
+    <div class="orb orb-1"></div>
+    <div class="orb orb-2"></div>
+    <div class="grid-lines"></div>
+  </div>
+  <div class="hero-content">
+    <div class="badge">
+      <span class="pulse"></span>
+      متاح للنشر الآن
+    </div>
+    <h1>
+      مرحباً بك في
+      <span class="grad">AS SITE</span>
+    </h1>
+    <p class="hero-sub">
+      منصة متخصصة في نشر البرامج والتطبيقات الذكية،
+      بتصميم عصري وحلول عملية تبسّط العمل وترفع الكفاءة.
     </p>
-</div>
+    <div class="hero-actions">
+      <a href="#apps" class="btn btn-primary">
+        استعرض البرامج
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+      </a>
+      <a href="#contact" class="btn btn-ghost">تواصل معنا</a>
+    </div>
+    <div class="hero-stats">
+      <div class="stat">
+        <div class="stat-num" id="statApps">0</div>
+        <div class="stat-lbl">برنامج</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num" id="statDownloads">0</div>
+        <div class="stat-lbl">تحميل</div>
+      </div>
+      <div class="stat">
+        <div class="stat-num">100%</div>
+        <div class="stat-lbl">مجاني</div>
+      </div>
+    </div>
+  </div>
+  <div class="scroll-hint"><span></span></div>
+</section>
 
-<div class="section" id="contact">
-    <h2>تواصل</h2>
-    <p style="text-align:center;">
-        📧
-        <a href="mailto:ahmedalmutadareb0@gmail.com">
-            ahmedalmutadareb0@gmail.com
-        </a>
-    </p>
-</div>
+<section class="section" id="apps">
+  <div class="section-head">
+    <div>
+      <div class="eyebrow">— معرض البرامج</div>
+      <h2>البرامج المتوفرة</h2>
+      <p class="section-desc">حمّل أحدث إصدارات برامجنا مباشرة بضغطة واحدة</p>
+    </div>
+    <div class="search-wrap">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>
+      </svg>
+      <input id="search" type="text" placeholder="ابحث عن برنامج..." />
+    </div>
+  </div>
+  <div id="appsGrid" class="grid">
+    <div class="skeleton"></div>
+    <div class="skeleton"></div>
+    <div class="skeleton"></div>
+  </div>
+</section>
+
+<section class="section section-alt" id="about">
+  <div class="about-grid">
+    <div class="about-text">
+      <div class="eyebrow">— من نحن</div>
+      <h2>حلول ذكية، بأداء احترافي</h2>
+      <p>
+        <strong>AS SITE</strong> منصة متخصصة في نشر البرامج والتطبيقات والحلول الرقمية
+        بشكل بسيط واحترافي، تم تطويرها وإدارتها من قبل
+        <strong>أحمد سعد كشيش</strong>.
+      </p>
+      <p>
+        نهدف إلى نشر البرامج التي تم تطويرها وتحسينها بالاعتماد على الخبرة الشخصية
+        والاستفادة من أدوات وتقنيات الذكاء الاصطناعي الحديثة، لتقديم حلول عملية
+        ومبتكرة تسهم في تبسيط العمل ورفع الكفاءة وتلبية احتياجات المستخدمين.
+      </p>
+      <div class="about-features">
+        <div class="feat">
+          <div class="feat-ico">🤖</div>
+          <div>
+            <div class="feat-t">مدعوم بالذكاء الاصطناعي</div>
+            <div class="feat-d">تقنيات حديثة بأداء عالي</div>
+          </div>
+        </div>
+        <div class="feat">
+          <div class="feat-ico">⚡</div>
+          <div>
+            <div class="feat-t">سريع وخفيف</div>
+            <div class="feat-d">برامج مصممة للسرعة</div>
+          </div>
+        </div>
+        <div class="feat">
+          <div class="feat-ico">🛡️</div>
+          <div>
+            <div class="feat-t">آمن وموثوق</div>
+            <div class="feat-d">تحديثات منتظمة ومستقرة</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="about-visual">
+      <div class="code-card">
+        <div class="code-head">
+          <span class="dot red"></span>
+          <span class="dot yellow"></span>
+          <span class="dot green"></span>
+          <span class="code-title">as_site.py</span>
+        </div>
+        <pre class="code-body"><span class="c-key">class</span> <span class="c-cls">AS_SITE</span>:
+  <span class="c-key">def</span> <span class="c-fn">__init__</span>(self):
+    self.owner = <span class="c-str">"Ahmed Saad"</span>
+    self.field = <span class="c-str">"AI Systems"</span>
+    self.quality = <span class="c-num">100</span>
+
+  <span class="c-key">def</span> <span class="c-fn">deliver</span>(self):
+    <span class="c-key">return</span> <span class="c-str">"حلول ذكية بلا حدود"</span></pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="contact">
+  <div class="contact-box">
+    <div class="eyebrow">— تواصل معنا</div>
+    <h2>عندك سؤال أو تريد برنامج مخصص؟</h2>
+    <p class="section-desc">راسلنا وراح نرد عليك بأسرع وقت ممكن</p>
+    <div class="contact-actions">
+      <a href="mailto:ahmedalmutadareb0@gmail.com" class="btn btn-primary">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
+        ahmedalmutadareb0@gmail.com
+      </a>
+    </div>
+  </div>
+</section>
 
 <footer>
-    AS SITE © جميع الحقوق محفوظة | تطوير وإدارة: أحمد سعد كشيش
+  <div class="footer-inner">
+    <div class="logo">
+      <span class="logo-mark">AS</span>
+      <span class="logo-text">SITE</span>
+    </div>
+    <p>© <span id="year"></span> AS SITE — جميع الحقوق محفوظة</p>
+    <p class="footer-credit">صُنع بـ ❤️ بواسطة أحمد سعد كشيش</p>
+  </div>
 </footer>
 
+<script src="script.js"></script>
 </body>
 </html>
