@@ -42,20 +42,129 @@ function escapeHTML(str){
     .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 
+// ==================== أيقونات المنصات ====================
+const OS_ICONS = {
+  'Windows': '💻',
+  'Android': '📱',
+  'macOS':   '🍎',
+  'Linux':   '🐧',
+  'iOS':     '📱',
+  'Web':     '🌐',
+};
+
+// ==================== SEO: meta keywords ====================
+function updateMetaKeywords(apps){
+  const allKeywords = [];
+  apps.forEach(a => {
+    if (a.keywords) allKeywords.push(a.keywords);
+    if (Array.isArray(a.tags)) allKeywords.push(a.tags.join(', '));
+    if (Array.isArray(a.hashtags)) {
+      allKeywords.push(a.hashtags.map(h => h.replace('#','')).join(', '));
+    }
+    if (Array.isArray(a.platforms)) {
+      a.platforms.forEach(p => allKeywords.push(p.os));
+    }
+  });
+  allKeywords.push('AS SYSTEMS', 'أحمد سعد كشيش', 'برامج', 'تطبيقات');
+
+  let meta = document.querySelector('meta[name="keywords"]');
+  if (!meta) {
+    meta = document.createElement('meta');
+    meta.name = 'keywords';
+    document.head.appendChild(meta);
+  }
+  meta.content = allKeywords.join(', ');
+}
+
+// ==================== SEO: JSON-LD ====================
+function injectStructuredData(apps){
+  const existing = document.getElementById('apps-jsonld');
+  if (existing) existing.remove();
+
+  const items = apps.map(a => {
+    const platforms = a.platforms && a.platforms.length
+      ? a.platforms
+      : (a.downloadUrl ? [{os:'Windows', url:a.downloadUrl}] : []);
+    return {
+      "@type": "SoftwareApplication",
+      "name": a.name,
+      "softwareVersion": a.version || '1.0.0',
+      "description": a.description || '',
+      "operatingSystem": platforms.map(p => p.os).join(', '),
+      "applicationCategory": "BusinessApplication",
+      "downloadUrl": platforms[0] ? platforms[0].url : '',
+      "datePublished": a.date || '',
+      "keywords": [
+        ...(a.tags || []),
+        ...(a.hashtags || []).map(h => h.replace('#','')),
+        a.keywords || ''
+      ].filter(Boolean).join(', '),
+      "offers": {
+        "@type": "Offer",
+        "price": "0",
+        "priceCurrency": "USD"
+      }
+    };
+  });
+
+  const ld = document.createElement('script');
+  ld.type = 'application/ld+json';
+  ld.id = 'apps-jsonld';
+  ld.textContent = JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": items
+  });
+  document.head.appendChild(ld);
+}
+
+// ==================== Render ====================
 function render(list){
   if (!list.length){
     grid.innerHTML = '<div class="empty"><div class="empty-icon">📭</div><div>لا توجد برامج مطابقة لبحثك</div></div>';
     return;
   }
+
   grid.innerHTML = list.map((app, i) => {
     const iconHTML = app.icon
       ? '<img src="' + escapeHTML(app.icon) + '" alt="' + escapeHTML(app.name) + '">'
       : '📦';
+
     const tagsHTML = Array.isArray(app.tags) && app.tags.length
-      ? '<div class="tags">' + app.tags.map(t => '<span class="tag">' + escapeHTML(t) + '</span>').join('') + '</div>'
+      ? '<div class="tags">' + app.tags.map(t =>
+          '<span class="tag">' + escapeHTML(t) + '</span>').join('') + '</div>'
       : '';
-    const sizeHTML = app.size ? '<span class="size">' + formatSize(app.size) + '</span>' : '';
+
+    const hashtagsHTML = Array.isArray(app.hashtags) && app.hashtags.length
+      ? '<div class="hashtags">' + app.hashtags.map(h => {
+          const clean = h.startsWith('#') ? h : '#' + h;
+          return '<a class="hashtag" href="https://www.google.com/search?q=' +
+            encodeURIComponent(clean.replace('#','')) + '" target="_blank" rel="noopener">' +
+            escapeHTML(clean) + '</a>';
+        }).join('') + '</div>'
+      : '';
+
     const dateHTML = app.date ? '<span>' + escapeHTML(app.date) + '</span>' : '';
+
+    // ============ المنصات ============
+    let platforms = app.platforms;
+    if ((!platforms || !platforms.length) && app.downloadUrl) {
+      // توافق مع البيانات القديمة
+      platforms = [{ os:'Windows', url: app.downloadUrl, size: app.size }];
+    }
+    platforms = platforms || [];
+
+    let platformsHTML = '';
+    if (platforms.length){
+      platformsHTML = '<div class="platforms">' + platforms.map(p => {
+        const icon = OS_ICONS[p.os] || '📦';
+        return '<a class="platform-btn" href="' + escapeHTML(p.url || '#') +
+          '" target="_blank" rel="noopener" title="' + escapeHTML(p.os) + '">' +
+          '<span class="platform-icon">' + icon + '</span>' +
+          '<span class="platform-name">' + escapeHTML(p.os) + '</span>' +
+          '<span class="platform-size">' + formatSize(p.size) + '</span>' +
+        '</a>';
+      }).join('') + '</div>';
+    }
 
     return '<div class="card" style="animation-delay:' + (i * 60) + 'ms">' +
       '<div class="card-head">' +
@@ -67,15 +176,11 @@ function render(list){
       '</div>' +
       (app.description ? '<p class="card-desc">' + escapeHTML(app.description) + '</p>' : '') +
       tagsHTML +
-      '<div class="card-foot">' +
-        '<a class="btn-dl" href="' + escapeHTML(app.downloadUrl || '#') + '" target="_blank" rel="noopener">' +
-          '<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>' +
-          'تحميل' +
-        '</a>' +
-        sizeHTML +
-      '</div>' +
+      hashtagsHTML +
+      platformsHTML +
     '</div>';
   }).join('');
+
   observeReveals();
 }
 
@@ -94,9 +199,13 @@ function animateNumber(el, target, duration){
 
 function updateStats(list){
   const total = list.length;
-  const downloads = list.reduce((s, a) => s + (a.downloads || 0), 0);
+  let platformsCount = 0;
+  list.forEach(a => {
+    if (a.platforms) platformsCount += a.platforms.length;
+    else if (a.downloadUrl) platformsCount += 1;
+  });
   animateNumber(document.getElementById('statApps'), total);
-  animateNumber(document.getElementById('statDownloads'), downloads || total * 12);
+  animateNumber(document.getElementById('statDownloads'), platformsCount || total);
 }
 
 async function loadApps(){
@@ -111,6 +220,8 @@ async function loadApps(){
     });
     render(ALL_APPS);
     updateStats(ALL_APPS);
+    updateMetaKeywords(ALL_APPS);
+    injectStructuredData(ALL_APPS);
   } catch(err){
     console.error(err);
     grid.innerHTML = '<div class="empty"><div class="empty-icon">⚠️</div><div>تعذّر تحميل البرامج. حاول لاحقاً.</div></div>';
@@ -120,11 +231,15 @@ async function loadApps(){
 search.addEventListener('input', (e) => {
   const q = e.target.value.trim().toLowerCase();
   if (!q){ render(ALL_APPS); return; }
-  const filtered = ALL_APPS.filter(a =>
-    (a.name || '').toLowerCase().includes(q) ||
-    (a.description || '').toLowerCase().includes(q) ||
-    (a.tags || []).join(' ').toLowerCase().includes(q)
-  );
+  const filtered = ALL_APPS.filter(a => {
+    const platformNames = (a.platforms || []).map(p => p.os).join(' ').toLowerCase();
+    return (a.name || '').toLowerCase().includes(q) ||
+      (a.description || '').toLowerCase().includes(q) ||
+      (a.tags || []).join(' ').toLowerCase().includes(q) ||
+      (a.hashtags || []).join(' ').toLowerCase().includes(q) ||
+      (a.keywords || '').toLowerCase().includes(q) ||
+      platformNames.includes(q);
+  });
   render(filtered);
 });
 

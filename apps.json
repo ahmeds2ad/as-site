@@ -3,13 +3,28 @@
     {
       "name": "TMS - برنامج إدارة الأفراد",
       "version": "1.0.0",
-      "description": "برنامج لإدارة وتثبيت حركة الأفراد وتقنياً وبذلك، يوفر واجهة سهلة وسريعة لإدارة بيانات الأفراد والعمليات اليومية.",
+      "description": "برنامج لإدارة وتنظيم حركة الأفراد والعمليات اليومية بواجهة سهلة وسريعة.",
       "icon": "",
-      "tags": ["إدارة", "أفراد", "Windows"],
-      "downloadUrl": "#",
-      "size": 0,
-      "date": "2026-01-01",
-      "featured": true
+      "tags": ["إدارة", "أفراد", "متعدد المنصات"],
+      "hashtags": ["#TMS", "#إدارة_الأفراد", "#برامج_ذكية"],
+      "keywords": "TMS, HR software, employee management",
+      "platforms": [
+        {
+          "os": "Windows",
+          "url": "#",
+          "size": 0,
+          "filename": "TMS-Setup.exe"
+        },
+        {
+          "os": "Android",
+          "url": "#",
+          "size": 0,
+          "filename": "TMS.apk"
+        }
+      ],
+      "date": "2026-01-25",
+      "featured": true,
+      "releaseTag": "v1.0.0"
     }
   ]
 }
