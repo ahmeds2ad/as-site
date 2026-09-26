@@ -42,7 +42,6 @@ function escapeHTML(str){
     .replace(/>/g,'&gt;').replace(/"/g,'&quot;');
 }
 
-// ==================== أيقونات المنصات ====================
 const OS_ICONS = {
   'Windows': '💻',
   'Android': '📱',
@@ -52,7 +51,6 @@ const OS_ICONS = {
   'Web':     '🌐',
 };
 
-// ==================== SEO: meta keywords ====================
 function updateMetaKeywords(apps){
   const allKeywords = [];
   apps.forEach(a => {
@@ -76,7 +74,6 @@ function updateMetaKeywords(apps){
   meta.content = allKeywords.join(', ');
 }
 
-// ==================== SEO: JSON-LD ====================
 function injectStructuredData(apps){
   const existing = document.getElementById('apps-jsonld');
   if (existing) existing.remove();
@@ -117,7 +114,6 @@ function injectStructuredData(apps){
   document.head.appendChild(ld);
 }
 
-// ==================== Render ====================
 function render(list){
   if (!list.length){
     grid.innerHTML = '<div class="empty"><div class="empty-icon">📭</div><div>لا توجد برامج مطابقة لبحثك</div></div>';
@@ -145,10 +141,8 @@ function render(list){
 
     const dateHTML = app.date ? '<span>' + escapeHTML(app.date) + '</span>' : '';
 
-    // ============ المنصات ============
     let platforms = app.platforms;
     if ((!platforms || !platforms.length) && app.downloadUrl) {
-      // توافق مع البيانات القديمة
       platforms = [{ os:'Windows', url: app.downloadUrl, size: app.size }];
     }
     platforms = platforms || [];
