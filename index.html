@@ -4,56 +4,70 @@
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <meta name="description" content="AS SYSTEMS — منصة نشر البرامج والتطبيقات الذكية من تطوير أحمد سعد كشيش" />
-<meta name="keywords" content="AS SYSTEMS, أحمد سعد كشيش, برامج, تطبيقات, ذكاء اصطناعي, AI" />
+<meta name="keywords" content="AS SYSTEMS, أحمد سعد كشيش, برامج, تطبيقات, ذكاء اصطناعي" />
+<meta name="theme-color" content="#07070d" />
 <title>AS SYSTEMS — برامج وحلول ذكية</title>
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="styles.css" />
+<link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;500;700;800;900&family=Space+Grotesk:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="styles.css?v=4" />
+
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  html,body{background:#07070d;color:#eef0f7;font-family:'Tajawal',system-ui,sans-serif;overflow-x:hidden}
+  body{opacity:0;transition:opacity .3s ease}
+  body.loaded{opacity:1}
+  #preloader{position:fixed;inset:0;z-index:9999;background:#07070d;display:flex;align-items:center;justify-content:center;transition:opacity .4s ease,visibility .4s ease}
+  #preloader.hidden{opacity:0;visibility:hidden}
+  .loader-logo{font-family:'Space Grotesk',sans-serif;font-size:28px;font-weight:700;color:#eef0f7;display:flex;align-items:center;gap:12px}
+  .loader-mark{width:44px;height:44px;border-radius:12px;background:linear-gradient(135deg,#2563eb,#06b6d4);display:grid;place-items:center;color:#fff;font-size:16px;animation:loadPulse 1.5s ease-in-out infinite}
+  @keyframes loadPulse{0%,100%{transform:scale(1);box-shadow:0 0 0 0 rgba(37,99,235,.4)}50%{transform:scale(1.05);box-shadow:0 0 0 15px rgba(37,99,235,0)}}
+</style>
 </head>
 <body>
 
-<!-- ===== NAV ===== -->
+<div id="preloader">
+  <div class="loader-logo">
+    <span class="loader-mark">AS</span>
+    <span>SYSTEMS</span>
+  </div>
+</div>
+
 <header class="nav" id="nav">
   <div class="nav-inner">
     <a href="#" class="logo">
       <span class="logo-mark">AS</span>
       <span class="logo-text">SYSTEMS</span>
     </a>
-
     <nav class="nav-links">
       <a href="#apps">البرامج</a>
       <a href="#about">من نحن</a>
       <a href="#contact">تواصل</a>
     </nav>
-
     <button class="menu-btn" id="menuBtn" aria-label="القائمة">
       <span></span><span></span><span></span>
     </button>
   </div>
 </header>
 
-<!-- ===== HERO ===== -->
 <section class="hero">
   <div class="hero-bg">
     <div class="orb orb-1"></div>
     <div class="orb orb-2"></div>
     <div class="grid-lines"></div>
   </div>
-
   <div class="hero-content">
     <h1>
       مرحباً بك في
       <br>
       <span class="grad">AS SYSTEMS</span>
     </h1>
-
     <p class="hero-sub">
       منصة متخصصة في نشر البرامج والتطبيقات الذكية،
       بتصميم عصري وحلول عملية تبسّط العمل وترفع الكفاءة.
     </p>
-
     <div class="hero-actions">
       <a href="#apps" class="btn btn-primary">
         استعرض البرامج
@@ -61,7 +75,6 @@
       </a>
       <a href="#contact" class="btn btn-ghost">تواصل معنا</a>
     </div>
-
     <div class="hero-stats">
       <div class="stat">
         <div class="stat-num" id="statApps">0</div>
@@ -77,13 +90,9 @@
       </div>
     </div>
   </div>
-
-  <div class="scroll-hint">
-    <span></span>
-  </div>
+  <div class="scroll-hint"><span></span></div>
 </section>
 
-<!-- ===== APPS ===== -->
 <section class="section" id="apps">
   <div class="section-head">
     <div>
@@ -91,7 +100,6 @@
       <h2>البرامج المتوفرة</h2>
       <p class="section-desc">حمّل أحدث إصدارات برامجنا مباشرة بضغطة واحدة</p>
     </div>
-
     <div class="search-wrap">
       <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
         <circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>
@@ -99,7 +107,6 @@
       <input id="search" type="text" placeholder="ابحث عن برنامج..." />
     </div>
   </div>
-
   <div id="appsGrid" class="grid">
     <div class="skeleton"></div>
     <div class="skeleton"></div>
@@ -107,7 +114,6 @@
   </div>
 </section>
 
-<!-- ===== ABOUT ===== -->
 <section class="section section-alt" id="about">
   <div class="about-grid">
     <div class="about-text">
@@ -123,7 +129,6 @@
         والاستفادة من أدوات وتقنيات الذكاء الاصطناعي الحديثة، لتقديم حلول عملية
         ومبتكرة تسهم في تبسيط العمل ورفع الكفاءة وتلبية احتياجات المستخدمين.
       </p>
-
       <div class="about-features">
         <div class="feat">
           <div class="feat-ico">🤖</div>
@@ -148,7 +153,6 @@
         </div>
       </div>
     </div>
-
     <div class="about-visual">
       <div class="code-card">
         <div class="code-head">
@@ -170,23 +174,20 @@
   </div>
 </section>
 
-<!-- ===== CONTACT ===== -->
 <section class="section" id="contact">
   <div class="contact-box">
     <div class="eyebrow">— تواصل معنا</div>
     <h2>عندك سؤال أو تريد برنامج مخصص؟</h2>
     <p class="section-desc">راسلنا وراح نرد عليك بأسرع وقت ممكن</p>
-
     <div class="contact-actions">
-      <a href="mailto:ahmedalmutadareb0@gmail.com" class="btn btn-primary">
+      <a href="mailto:assystemsai@gmail.com" class="btn btn-primary">
         <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
-        ahmedalmutadareb0@gmail.com
+        assystemsai@gmail.com
       </a>
     </div>
   </div>
 </section>
 
-<!-- ===== FOOTER ===== -->
 <footer>
   <div class="footer-inner">
     <div class="logo">
@@ -198,6 +199,67 @@
   </div>
 </footer>
 
-<script src="script.js"></script>
+<div class="modal-overlay" id="downloadModal">
+  <div class="modal-box">
+    <button class="modal-close" id="modalClose" aria-label="إغلاق">✕</button>
+
+    <div class="modal-icon">📥</div>
+    <h3 class="modal-title">قبل التحميل</h3>
+    <p class="modal-sub">
+      الرجاء إدخال معلوماتك لتحميل <strong id="modalAppName"></strong>
+    </p>
+
+    <form id="downloadForm" class="modal-form">
+      <div class="form-group">
+        <label for="userName">الاسم الكامل *</label>
+        <input type="text" id="userName" required placeholder="مثال: أحمد محمد" />
+      </div>
+      <div class="form-group">
+        <label for="userOrg">المؤسسة / جهة العمل *</label>
+        <input type="text" id="userOrg" required placeholder="مثال: شركة النور" />
+      </div>
+      <div class="form-group">
+        <label for="userEmail">البريد الإلكتروني *</label>
+        <input type="email" id="userEmail" required placeholder="you@example.com" />
+      </div>
+      <button type="submit" class="btn btn-primary modal-submit" id="modalSubmit">
+        <span>تأكيد التحميل</span>
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+          <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/>
+          <polyline points="7 10 12 15 17 10"/>
+          <line x1="12" y1="15" x2="12" y2="3"/>
+        </svg>
+      </button>
+      <p class="modal-privacy">
+        🔒 معلوماتك محفوظة ولا تُستخدم إلا للتواصل معك بخصوص التحديثات
+      </p>
+    </form>
+
+    <div class="modal-success" id="modalSuccess">
+      <div class="success-icon">✅</div>
+      <h3>شكراً لك!</h3>
+      <p>تم تسجيل بياناتك بنجاح</p>
+      <p class="small">سيبدأ التحميل تلقائياً...</p>
+      <a href="#" id="modalDownloadLink" class="btn btn-primary">التحميل الآن</a>
+    </div>
+  </div>
+</div>
+
+<script src="script.js?v=4"></script>
+
+<script>
+  window.addEventListener('load', function() {
+    setTimeout(function() {
+      var p = document.getElementById('preloader');
+      if (p) p.classList.add('hidden');
+      document.body.classList.add('loaded');
+    }, 200);
+  });
+  setTimeout(function() {
+    var p = document.getElementById('preloader');
+    if (p) p.classList.add('hidden');
+    document.body.classList.add('loaded');
+  }, 3000);
+</script>
 </body>
 </html>
